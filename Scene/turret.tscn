@@ -21,6 +21,7 @@ texture = ExtResource("2_e51cp")
 [node name="object_range" type="Marker2D" parent="nozzle"]
 
 [node name="base_area" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_0ly3v")
 
 [node name="fire_range" type="Area2D" parent="."]

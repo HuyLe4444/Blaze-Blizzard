@@ -44,7 +44,7 @@ script = ExtResource("1_34o4i")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pyflt")
 autoplay = "default"
-frame_progress = 0.549023
+frame_progress = 0.616629
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17)

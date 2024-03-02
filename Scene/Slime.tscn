@@ -169,7 +169,6 @@ size = Vector2(12, 19.6667)
 size = Vector2(12, 19.6667)
 
 [node name="Slime" type="CharacterBody2D"]
-visible = false
 light_mask = 0
 texture_filter = 1
 scale = Vector2(3, 3)

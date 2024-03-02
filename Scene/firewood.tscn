@@ -12,7 +12,6 @@ size = Vector2(55, 34)
 radius = 181.003
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-visible = false
 script = ExtResource("1_ovk4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,7 +38,10 @@ position = Vector2(2.86102e-06, -0.49999)
 scale = Vector2(0.675781, 0.685547)
 texture = ExtResource("4_wm4lv")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

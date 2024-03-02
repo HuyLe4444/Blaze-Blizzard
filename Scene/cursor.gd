@@ -4,6 +4,8 @@ signal enemy_Appered
 signal enemy_DisAppered
 signal firewood_Appered
 signal firewood_DisAppered
+signal mineral_Appered
+signal mineral_DisAppered
 signal turret_Can_Fired
 signal turret_Stop_Fired
 
@@ -25,6 +27,8 @@ func _on_area_2d_body_entered(body):
 		emit_signal("turret_Can_Fired")
 	if body.has_method("firewood"):
 		emit_signal("firewood_Appered")
+	if body.has_method("mineral"):
+		emit_signal("mineral_Appered")
 
 func _on_area_2d_body_exited(body):
 	if body.has_method("mob"):
@@ -32,3 +36,5 @@ func _on_area_2d_body_exited(body):
 		emit_signal("turret_Stop_Fired")
 	if body.has_method("firewood"):
 		emit_signal("firewood_DisAppered")
+	if body.has_method("mineral"):
+		emit_signal("mineral_DisAppered")

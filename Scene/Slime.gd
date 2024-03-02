@@ -3,8 +3,8 @@ extends CharacterBody2D
 var health = 100
 var mouse_in = null
 var is_Hurt = false
-var visible_check_mouse = false
-var visible_check_firewood = false
+#var visible_check_mouse = false
+#var visible_check_firewood = false
 var tower_pos = Vector2.ZERO
 
 const SPEED = 100.0
@@ -25,10 +25,12 @@ func health_Bar_Action():
 		queue_free()
 
 func _physics_process(delta):
-	if Global.is_Lit == true or visible_check_mouse == true:
-		self.visible = true
-	else:
-		self.visible = false
+	#print(visible_check_mouse)
+	#print(visible_check_firewood)
+	#if Global.is_Lit == true or visible_check_mouse == true:
+		#self.visible = true
+	#else:
+		#self.visible = false
 		
 	tower_pos.x = Global.x
 	tower_pos.y = Global.y
@@ -44,11 +46,11 @@ func _physics_process(delta):
 func mob():
 	pass
 
-func _on_cursor_enemy_appered():
-	visible_check_mouse = true
-
-func _on_cursor_enemy_dis_appered():
-	visible_check_mouse = false
+#func _on_cursor_enemy_appered():
+	#visible_check_mouse = true
+#
+#func _on_cursor_enemy_dis_appered():
+	#visible_check_mouse = false
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
@@ -59,5 +61,5 @@ func _on_area_2d_mouse_exited():
 #func _on_firewood_enemy_appered():
 	#visible_check_firewood = true
 #
-#func _on_firewood_enemy_dis_appered():
+#func _on_firewood_enemy_dis_appered(isLit):
 	#visible_check_firewood = false

@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqnmuvpb88y4k"]
+
+[ext_resource type="Script" path="res://test2.gd" id="1_07ayj"]
+[ext_resource type="Texture2D" uid="uid://dobgecek5ere5" path="res://Sprite/Tile/Snow_0.png" id="2_40sh6"]
+[ext_resource type="Script" path="res://Scene/spawn.gd" id="3_hibu7"]
+[ext_resource type="PackedScene" uid="uid://bcyvlonpkjyvm" path="res://Scene/firewood.tscn" id="4_n47lc"]
+[ext_resource type="PackedScene" uid="uid://cwy1cum6dqiyw" path="res://Scene/Slime.tscn" id="5_0tuld"]
+[ext_resource type="PackedScene" uid="uid://bq6uj3y50vwb7" path="res://Scene/tower.tscn" id="6_pcfcv"]
+[ext_resource type="PackedScene" uid="uid://dwfspvqjpxis5" path="res://Scene/turret.tscn" id="7_gq1l1"]
+[ext_resource type="PackedScene" uid="uid://dkwi1xy48hr3u" path="res://Scene/mineral.tscn" id="8_mnsfd"]
+[ext_resource type="PackedScene" uid="uid://dd3xl6y6ksym4" path="res://Scene/cursor.tscn" id="9_axn0h"]
+[ext_resource type="Texture2D" uid="uid://cnyhdjwnd6heu" path="res://Sprite/Tile/light.png" id="10_tqpes"]
+
+[node name="Node2D" type="Node"]
+script = ExtResource("1_07ayj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_40sh6")
+stretch_mode = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.113725, 0.192157, 0.215686, 1)
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("3_hibu7")
+
+[node name="Firewood" parent="." instance=ExtResource("4_n47lc")]
+light_mask = 2
+position = Vector2(163, 270)
+
+[node name="Slime" parent="." instance=ExtResource("5_0tuld")]
+light_mask = 2
+position = Vector2(88, 314)
+
+[node name="Tower" parent="." instance=ExtResource("6_pcfcv")]
+position = Vector2(535, 276)
+
+[node name="turret" parent="." instance=ExtResource("7_gq1l1")]
+position = Vector2(439, 331)
+
+[node name="Mineral" parent="." instance=ExtResource("8_mnsfd")]
+position = Vector2(370, 467)
+
+[node name="Cursor" parent="." instance=ExtResource("9_axn0h")]
+position = Vector2(816, 321)
+
+[node name="PointLight2D" type="PointLight2D" parent="Cursor"]
+position = Vector2(-7.62939e-06, -2.99999)
+scale = Vector2(1.07788, 1.10937)
+texture = ExtResource("10_tqpes")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1001.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 51.0

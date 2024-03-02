@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://v6aegu6e04gp"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_5x7pm"]
+[ext_resource type="Texture2D" uid="uid://dobgecek5ere5" path="res://Sprite/Tile/Snow_0.png" id="1_tkljo"]
+[ext_resource type="PackedScene" uid="uid://bcyvlonpkjyvm" path="res://Scene/firewood.tscn" id="2_r1iv8"]
+[ext_resource type="PackedScene" uid="uid://cwy1cum6dqiyw" path="res://Scene/Slime.tscn" id="3_1ukg4"]
+[ext_resource type="PackedScene" uid="uid://bq6uj3y50vwb7" path="res://Scene/tower.tscn" id="4_3bran"]
+[ext_resource type="PackedScene" uid="uid://dwfspvqjpxis5" path="res://Scene/turret.tscn" id="5_a4iax"]
+[ext_resource type="PackedScene" uid="uid://dkwi1xy48hr3u" path="res://Scene/mineral.tscn" id="6_gbm0p"]
+[ext_resource type="PackedScene" uid="uid://dd3xl6y6ksym4" path="res://Scene/cursor.tscn" id="7_8o7p1"]
+[ext_resource type="Texture2D" uid="uid://cnyhdjwnd6heu" path="res://Sprite/Tile/light.png" id="8_b3ilx"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5x7pm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 1158.0
+offset_bottom = 657.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tkljo")
+stretch_mode = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Tower" parent="." instance=ExtResource("4_3bran")]
+position = Vector2(535, 276)
+
+[node name="turret" parent="." instance=ExtResource("5_a4iax")]
+position = Vector2(439, 331)
+
+[node name="Mineral" parent="." instance=ExtResource("6_gbm0p")]
+visible = true
+position = Vector2(370, 467)
+
+[node name="Cursor" parent="." instance=ExtResource("7_8o7p1")]
+position = Vector2(816, 321)
+
+[node name="PointLight2D" type="PointLight2D" parent="Cursor"]
+position = Vector2(-7.62939e-06, -2.99999)
+scale = Vector2(1.07788, 1.10937)
+texture = ExtResource("8_b3ilx")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1001.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 51.0
+
+[node name="Slime" parent="." instance=ExtResource("3_1ukg4")]
+position = Vector2(127, 327)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_r1iv8")]
+position = Vector2(201, 331)

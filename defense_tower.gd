@@ -48,7 +48,7 @@ func fire(body):
 	Reloaded = false
 	await get_tree().create_timer(1).timeout 
 	Reloaded = true
-	
+
 
 
 func _on_cursor_turret_can_fired():
@@ -57,9 +57,3 @@ func _on_cursor_turret_can_fired():
 func _on_cursor_turret_stop_fired():
 	canShoot_mouse = false
 
-
-#func _on_firewood_turret_can_fired():
-	#canShoot_firewood = true
-#
-#func _on_firewood_turret_stop_fired():
-	#canShoot_firewood = false
