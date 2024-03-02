@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcyvlonpkjyvm"]
+
+[ext_resource type="Texture2D" uid="uid://c1xtlb56wvkrm" path="res://Sprite/Tile/firewood.png" id="1_0ecly"]
+[ext_resource type="Script" path="res://Scene/firewood.gd" id="1_ovk4j"]
+[ext_resource type="PackedScene" uid="uid://cla0b5x84dhnv" path="res://Particle/firewood.tscn" id="3_0m38a"]
+[ext_resource type="Texture2D" uid="uid://cnyhdjwnd6heu" path="res://Sprite/Tile/light.png" id="4_wm4lv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbe2j"]
+size = Vector2(55, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ehd02"]
+radius = 181.003
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+visible = false
+script = ExtResource("1_ovk4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_mbe2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0ecly")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_ehd02")
+
+[node name="Fire" parent="." instance=ExtResource("3_0m38a")]
+visible = false
+position = Vector2(1, -19)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(2.86102e-06, -0.49999)
+scale = Vector2(0.675781, 0.685547)
+texture = ExtResource("4_wm4lv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

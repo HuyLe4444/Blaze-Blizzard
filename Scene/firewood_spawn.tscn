@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfajuehdl5myj"]
+
+[ext_resource type="Script" path="res://Scene/FirewoodSpawn.gd" id="1_78fu7"]
+
+[node name="FirewoodSpawn" type="Node2D"]
+script = ExtResource("1_78fu7")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7rncpvmqnx0g"]
+
+[ext_resource type="Script" path="res://Slime/SlimeSpawner.gd" id="1_f5cx3"]
+[ext_resource type="PackedScene" uid="uid://cwy1cum6dqiyw" path="res://Scene/Slime.tscn" id="2_vixng"]
+[ext_resource type="Script" path="res://Slime/spawn_info.gd" id="3_c3p7d"]
+
+[sub_resource type="Resource" id="Resource_q3qjj"]
+script = ExtResource("3_c3p7d")
+time_start = 0
+time_end = 60
+enemy = ExtResource("2_vixng")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[node name="SlimeSpawner" type="Node2D"]
+script = ExtResource("1_f5cx3")
+spawns = Array[ExtResource("3_c3p7d")]([SubResource("Resource_q3qjj")])
+
+[node name="Timer" type="Timer" parent="."]

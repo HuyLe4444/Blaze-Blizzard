@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwfspvqjpxis5"]
+
+[ext_resource type="Script" path="res://defense_tower.gd" id="1_nfr4y"]
+[ext_resource type="Texture2D" uid="uid://bt4k7naadbuor" path="res://Sprite/Slime/slime_hurt.png" id="2_e51cp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ly3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03y55"]
+radius = 1e+07
+
+[node name="turret" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_nfr4y")
+
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("2_e51cp")
+
+[node name="nozzle" type="Sprite2D" parent="."]
+texture = ExtResource("2_e51cp")
+
+[node name="object_range" type="Marker2D" parent="nozzle"]
+
+[node name="base_area" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0ly3v")
+
+[node name="fire_range" type="Area2D" parent="."]
+
+[node name="fire_range_colli" type="CollisionShape2D" parent="fire_range"]
+shape = SubResource("CircleShape2D_03y55")
+
+[connection signal="body_entered" from="fire_range" to="." method="_on_fire_range_body_entered"]
+[connection signal="body_exited" from="fire_range" to="." method="_on_fire_range_body_exited"]

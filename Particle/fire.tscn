@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://mlowtlswbmgi"]
+
+[sub_resource type="Curve" id="Curve_7s6tk"]
+_data = [Vector2(0.0193906, 0.958019), 0.0, 0.0, 0, 0, Vector2(0.889197, 0.0554359), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jvjgu"]
+offsets = PackedFloat32Array(0, 0.324324, 0.936937, 1)
+colors = PackedColorArray(0.725566, 0.175727, 0.105588, 1, 0.915769, 0.492012, 0.206725, 1, 0.900354, 0.742938, 0.566167, 1, 1, 1, 1, 1)
+
+[node name="Fire" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(10, 10)
+amount = 50
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 3.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_7s6tk")
+color_ramp = SubResource("Gradient_jvjgu")

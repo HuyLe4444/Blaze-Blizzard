@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpcqrbice24jx"]
+
+[ext_resource type="PackedScene" uid="uid://cwy1cum6dqiyw" path="res://Scene/Slime.tscn" id="1_epvoj"]
+[ext_resource type="PackedScene" uid="uid://dd3xl6y6ksym4" path="res://Scene/cursor.tscn" id="2_34bfk"]
+[ext_resource type="Texture2D" uid="uid://dobgecek5ere5" path="res://Sprite/Tile/Snow_0.png" id="3_otl70"]
+[ext_resource type="Texture2D" uid="uid://cnyhdjwnd6heu" path="res://Sprite/Tile/light.png" id="4_d1gdh"]
+[ext_resource type="PackedScene" uid="uid://bcyvlonpkjyvm" path="res://Scene/firewood.tscn" id="5_daef5"]
+[ext_resource type="PackedScene" uid="uid://bq6uj3y50vwb7" path="res://Scene/tower.tscn" id="6_lbjis"]
+[ext_resource type="PackedScene" uid="uid://dwfspvqjpxis5" path="res://Scene/turret.tscn" id="7_axdup"]
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_otl70")
+stretch_mode = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.113725, 0.192157, 0.215686, 1)
+
+[node name="Firewood" parent="." instance=ExtResource("5_daef5")]
+light_mask = 2
+position = Vector2(163, 270)
+
+[node name="Slime" parent="." instance=ExtResource("1_epvoj")]
+light_mask = 2
+position = Vector2(88, 314)
+
+[node name="Tower" parent="." instance=ExtResource("6_lbjis")]
+position = Vector2(535, 276)
+
+[node name="turret" parent="." instance=ExtResource("7_axdup")]
+position = Vector2(439, 331)
+
+[node name="Cursor" parent="." instance=ExtResource("2_34bfk")]
+position = Vector2(816, 321)
+
+[node name="PointLight2D" type="PointLight2D" parent="Cursor"]
+position = Vector2(-7.62939e-06, -2.99999)
+scale = Vector2(1.07788, 1.10937)
+texture = ExtResource("4_d1gdh")
+metadata/_edit_group_ = true
+
+[connection signal="enemy_Appered" from="Firewood" to="Slime" method="_on_firewood_enemy_appered"]
+[connection signal="enemy_DisAppered" from="Firewood" to="Slime" method="_on_firewood_enemy_dis_appered"]
+[connection signal="turret_Can_Fired" from="Firewood" to="turret" method="_on_firewood_turret_can_fired"]
+[connection signal="turret_Stop_Fired" from="Firewood" to="turret" method="_on_firewood_turret_stop_fired"]
+[connection signal="enemy_Appered" from="Cursor" to="Slime" method="_on_cursor_enemy_appered"]
+[connection signal="enemy_DisAppered" from="Cursor" to="Slime" method="_on_cursor_enemy_dis_appered"]
+[connection signal="firewood_Appered" from="Cursor" to="Firewood" method="_on_cursor_firewood_appered"]
+[connection signal="firewood_DisAppered" from="Cursor" to="Firewood" method="_on_cursor_firewood_dis_appered"]
+[connection signal="turret_Can_Fired" from="Cursor" to="turret" method="_on_cursor_turret_can_fired"]
+[connection signal="turret_Stop_Fired" from="Cursor" to="turret" method="_on_cursor_turret_stop_fired"]

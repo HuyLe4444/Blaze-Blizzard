@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://copwu3x6sgrqs"]
+
+[ext_resource type="Texture2D" uid="uid://bt4k7naadbuor" path="res://Sprite/Slime/slime_hurt.png" id="1_jv8g6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is8ds"]
+size = Vector2(101, 87)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_is8ds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8.055, 8.055)
+texture = ExtResource("1_jv8g6")
